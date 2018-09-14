@@ -1,7 +1,40 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+import './css/bingo.css';
+
 "use strict";
 
-class Card {
+class CardHeader extends React.Component {
+    render() {
+        return (
+            <tr id="header" class="text-center">
+                <th width="20%"><strong>B</strong></th>
+                <th width="20%"><strong>I</strong></th>
+                <th width="20%"><strong>N</strong></th>
+                <th width="20%"><strong>G</strong></th>
+                <th width="20%"><strong>O</strong></th>
+            </tr>
+        );
+    }
+}
+
+class CardRow extends React.Component {
+    render() {
+        return (
+            <tr id="row-{idNum}" class="text-center">
+                <td class="b"></td>
+                <td class="i"></td>
+                <td class="n"></td>
+                <td class="g"></td>
+                <td class="o"></td>
+            </tr>
+        );
+    }
+}
+
+class Card extends React.Component {
     constructor() {
+        super();
         this.card = {
             b : {value: [0,0,0,0,0], marked: [false,false,false,false,false]},
             i : {value: [0,0,0,0,0], marked: [false,false,false,false,false]},
@@ -17,6 +50,27 @@ class Card {
             gMin : 46, gMax : 60,
             oMin : 61, oMax : 75,
         }
+    }
+
+    createTableBody = () => {
+       let body = [];
+        for (var i=1; i<=5; i++) {
+           body.push(<CardRow idNum={i} />);
+       }
+       return body;
+    }
+
+    render() {
+        return (
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <CardHeader />
+                </thead>
+                <tbody id="card1-body">
+                    {this.createTableBody()}  
+                </tbody>
+            </table>
+        );
     }
 
     generateColumnNumbers(col) {
@@ -63,3 +117,8 @@ class Player {
         this.name = name;
     }
 }
+
+ReactDom.render(
+    <Card />,
+    document.getElementById('card1')
+);

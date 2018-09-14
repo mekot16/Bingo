@@ -40,31 +40,12 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-        <script type="text/javascript" src="./js/bingo.js" ></script>
-        <script>
-
-            let card = new Card();
-            card.generateCardNumbers();
-            $(document).ready(function() {
-                let letters = ['b','i','n','g','o'];
-                letters.forEach(le => {
-                    let col = $('.'+le).toArray();
-                    for (let i=0; i<col.length; i++) {
-                        $(col[i]).text(card.card[le].value[i]);
-                        if (card.card[le].value[i] <= 0) {
-                            $(col[i]).text("Free");
-                        }
-                    }
-                });
-            });
-        </script>
+        
     </head>
     <body>
         <noscript>
             You need to enable JavaScript to run this app.
         </noscript>
-        <div id="root"></div>
         <!--
             This HTML file is a template.
             If you open it directly in the browser, you will see an empty page.
@@ -77,60 +58,7 @@
         -->
 
         <div id="card1" class="bingoCard">
-            <table class="table table-bordered">
-                <thead class="thead-dark">
-                    <tr id="header" class="text-center">
-                        <th width="20%"><strong>B</strong></th>
-                        <th width="20%"><strong>I</strong></th>
-                        <th width="20%"><strong>N</strong></th>
-                        <th width="20%"><strong>G</strong></th>
-                        <th width="20%"><strong>O</strong></th>
-                    </tr>
-                    
-                </thead>
-                <tbody id="card1-body">
-                    <tr id="row-1" class="text-center">
-                        <td class="b"></td>
-                        <td class="i"></td>
-                        <td class="n"></td>
-                        <td class="g"></td>
-                        <td class="o"></td>
-                    </tr>
-                    
-                    <tr id="row-2" class="text-center">
-                        <td class="b"></td>
-                        <td class="i"></td>
-                        <td class="n"></td>
-                        <td class="g"></td>
-                        <td class="o"></td>
-                    </tr>
-                    
-                    <tr id="row-3" class="text-center">
-                        <td class="b"></td>
-                        <td class="i"></td>
-                        <td class="n"></td>
-                        <td class="g"></td>
-                        <td class="o"></td>
-                    </tr>
-                    
-                    <tr id="row-4" class="text-center">
-                        <td class="b"></td>
-                        <td class="i"></td>
-                        <td class="n"></td>
-                        <td class="g"></td>
-                        <td class="o"></td>
-                    </tr>
-                    
-                    <tr id="row-5" class="text-center">
-                        <td class="b"></td>
-                        <td class="i"></td>
-                        <td class="n"></td>
-                        <td class="g"></td>
-                        <td class="o"></td>
-                    </tr>
-                    
-                </tbody>
-            </table>
+
         </div>
     </body>
 </html>
